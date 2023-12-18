@@ -9,30 +9,30 @@ getgenv().Settings = {
 
 getgenv().Alts = {
     3954711285,
-   3954737528,
-   3954747132,
+    3954737528,
+    3954747132,
     3954785782,
-     3954757934,
+    3954757934,
     3956594839,
-  3956699233,
-  3956816184,
- 3956898964,
-   3956913967,
+    3956699233,
+    3956816184,
+    3956898964,
+    3956913967,
     3956993280,
-  3249377443,
- 3249053117,
- 3260565823,
-3249012319,
-3253250872,
-227473884,
- 244300580,
-   3260216479,
-   3260222297,
+    3249377443,
+    3249053117,
+    3260565823,
+    3249012319,
+    3253250872,
+    227473884,
+    244300580,
+    3260216479,
+    3260222297,
     243180620,
-     244324397,
-   244297630,
-268288582,
-215801603
+    244324397,
+    244297630,
+    268288582,
+    215801603
 }
 
 if not game:IsLoaded() then
@@ -380,7 +380,7 @@ local function KnockPlr(plr_name)
                     if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") then
                         game.Players.LocalPlayer.Backpack:FindFirstChild("Combat").Parent = game.Players.LocalPlayer.Character
                     end
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(0,5,0)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(0,-2,0)
                     game.Players.LocalPlayer.Character:FindFirstChild("Combat"):Activate()
                 end
             end)
@@ -401,6 +401,8 @@ local locations_setup = {
 }
 
 local TPAREAS = {
+    Void = "592.6043701171875, 16962230, 106.38805389404297",
+    Sw = "-124.87274169921875, -58.7000732421875, 170.70431518554688",
     Admin = "-870.7142944335938, -32.64921188354492, -654.3141479492188",
     Bank = "-375.7147216796875, 21.24999237060547, -364.8031311035156",
     Club = "-265.0559387207031, 0.02806040644645691, -429.0494384765625",
