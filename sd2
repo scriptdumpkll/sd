@@ -324,40 +324,6 @@ local function FormatAlts()
     return new
 end
 
-local handSize
-local originFall
-coroutine.resume(coroutine.create(function()
-    repeat wait() until workspace.Players:FindFirstChild(player.Name)
-    handSize = player.Character:FindFirstChild("RightHand").Size
-    originFall = player.Character.Animate.fall.FallAnim.AnimationId
-end))
-
-local function reach(boolean)
-    if boolean == true then
-        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            if string.find(v.Name,"Hand") then
-                pcall(function()
-                    v.Massless = true
-                    v.Size = Vector3.new(20,20,20)
-                    v.Transparency = .99
-                    v.CanCollide = true
-                end)
-            end
-        end
-    elseif boolean == false then
-        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            if string.find(v.Name,"Hand") then
-                pcall(function()
-                    v.Massless = false
-                    v.Size = handSize
-                    v.Transparency = 0
-                    v.CanCollide = false
-                end)
-            end
-        end
-    end
-end
-
 local function KnockPlr(plr_name)
     local data = CheckPlr2(plr_name)
     if data == nil then
@@ -368,12 +334,10 @@ local function KnockPlr(plr_name)
         local oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         repeat
             pcall(function()
-                reach(true)
                 setfpscap(20)
                 local combat = game.Players.LocalPlayer.Character:FindFirstChild("Combat") or game.Players.LocalPlayer.Backpack:FindFirstChild("Combat")
                 if combat then
                     if KNOCKING == false then
-                        reach(false)
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
                         return false
                     end
@@ -386,7 +350,6 @@ local function KnockPlr(plr_name)
             end)
             wait(0.01)
         until Target.Character.BodyEffects:FindFirstChild("K.O").Value == true
-        reach(false)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
         return Target.Name
     end
@@ -623,11 +586,6 @@ local function cmds(msg,plr)
                 Freeze(true)
             elseif string.lower(msg) == Settings['Prefix'].."reset" then
                 Reset()
-            elseif string.lower(msg) == Settings['Prefix'].."god" then
-                if game.Players.LocalPlayer.Character:FindFirstChild("BodyEffects").Attacking then
-                    game.Players.LocalPlayer.Character:FindFirstChild("BodyEffects").Attacking:Destroy()
-                    saymsg("[god]")
-                end
             elseif string.lower(msg) == Settings['Prefix'].."drop" then
                 Drop(true)
             elseif string.lower(msg) == Settings['Prefix'].."stop" then
@@ -693,8 +651,10 @@ local function cmds(msg,plr)
                         theplace = "HOST"
                     elseif string.lower(msg[3]) == nil then
                         theplace = "HOST"
-                    elseif string.lower(msg[3]) == "admin" then
-                        theplace = "Admin"
+                    elseif string.lower(msg[3]) == "sw" then
+                        theplace = "Sw"
+                    elseif string.lower(msg[3]) == "void" then
+                        theplace = "Void"
                     elseif string.lower(msg[3]) == "train" then
                         theplace = "Train"
                     elseif string.lower(msg[3]) == "club" then
@@ -756,31 +716,6 @@ local function cmds(msg,plr)
                 Surronund(msg[2])
                 wait(2)
                 Freeze(true)
-            elseif msg[1] == Settings['Prefix'].."dupe" then
-                Freeze(false)
-                local DATANAME = CheckPlr2(msg[2])
-                if DATANAME then
-                    if DATANAME ~= player.Name then
-                        local newalts = FormatAlts()
-                        local cords = PresentSetups['SurroundSetup']
-                        local index = 0
-                        local Target = game.Players[DATANAME]
-                        for i,v in pairs(newalts) do
-                            if v == player.UserId then
-                                index = index + 1
-                                local x,y,z = string.split(cords[index],",")[1],string.split(cords[index],",")[2],string.split(cords[index],",")[3]
-                                player.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.HumanoidRootPart.CFrame.X+tonumber(x),Target.Character.HumanoidRootPart.CFrame.Y+tonumber(y),Target.Character.HumanoidRootPart.CFrame.Z+tonumber(z))
-                            else
-                                index = index + 1
-                            end
-                        end
-                        wait(2)
-                        Drop(true)
-                        Freeze(true)
-                    else
-                        Toggles['Cashauraing'] = true
-                    end
-                end
             elseif msg[1] == Settings['Prefix'].."fps" then
                 if tonumber(msg[2]) then
                     setfpscap(tonumber(msg[2]))
