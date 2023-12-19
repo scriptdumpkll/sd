@@ -244,7 +244,8 @@ local function KnockPlr(plr_name)
                     if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") then
                         game.Players.LocalPlayer.Backpack:FindFirstChild("Combat").Parent = game.Players.LocalPlayer.Character
                     end
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(0,-2,-2)
+                    local random = math.random(-2, 2)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(random, 0, random)
                     game.Players.LocalPlayer.Character:FindFirstChild("Combat"):Activate()
                 end
             end)
