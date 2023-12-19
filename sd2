@@ -6,8 +6,6 @@ getgenv().Settings = {
     AdMessage = 'vouch eyedress 0995'
 }
 
-setfpscap(Settings.FPS)
-
 getgenv().Alts = {
     3954711285,
     3954737528,
@@ -110,7 +108,7 @@ TextLabel.BackgroundTransparency = 1.000
 TextLabel.Position = UDim2.new(0.5, 0, 0.49158523, 0)
 TextLabel.Size = UDim2.new(0, 300, 0, 60)
 TextLabel.Font= Enum.Font.GothamBlack
-TextLabel.Text = "eyedress#0995"
+TextLabel.Text = "eyesore"
 TextLabel.TextColor3 = Color3.fromRGB(144,238,144)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
@@ -230,7 +228,7 @@ local function KnockPlr(plr_name)
         return false
     end
     local Target = game.Players[data]
-    if Target.Character and game.Players.LocalPlayer.Character and Target.Character.BodyEffects:FindFirstChild("Dead").Value == false and Target.Character.BodyEffects:FindFirstChild("K.O").Value == false then
+    if Target.Character and game.Players.LocalPlayer.Character and Target.Character.BodyEffects:FindFirstChild("Dead").Value == false and Target.Character.BodyEffects:FindFirstChild("K.O").Value == false and Target.Character and game.Players.LocalPlayer.Character and Target.Character.BodyEffects:FindFirstChild("Dead").Value == true and Target.Character.BodyEffects:FindFirstChild("K.O").Value == true then
         local oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         repeat
             pcall(function()
@@ -252,6 +250,8 @@ local function KnockPlr(plr_name)
             wait(0.01)
         until Target.Character.BodyEffects:FindFirstChild("K.O").Value == true
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
+        wait(0.01)
+        setfpscap(Settings.FPS)
         return Target.Name
     end
     return false
@@ -377,7 +377,7 @@ function Wallet(boolean)
     end
 end
 
-function Airlock(boolean)
+function Airlock(boolean, boo)
     if boolean == true then
         if workspace:FindFirstChild("AirlockPart") then
             workspace:FindFirstChild("AirlockPart"):Destroy()
@@ -387,7 +387,8 @@ function Airlock(boolean)
         end
         Freeze(false)
         Toggles['Airlock'] = true
-        local cf = 5
+        local oldpos1 = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        local cf = boo
         local plr = game:service"Players".LocalPlayer
         local Part = Instance.new("Part",workspace)
         player.Character.Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=3541114300"
@@ -406,6 +407,7 @@ function Airlock(boolean)
         end
         Toggles['Airlock'] = false
         player.Character.HumanoidRootPart.Anchored = false
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos1
         wait(4)
         player.Character.HumanoidRootPart.Anchored = true
     end
@@ -561,7 +563,7 @@ local function cmds(msg,plr)
             elseif string.lower(msg) == Settings['Prefix'].."ground" then
                 Ground(true)
             elseif string.lower(msg) == Settings['Prefix'].."airlock" then
-                Airlock(true)
+                Airlock(true, (msg[3]))
             elseif string.lower(msg) == Settings['Prefix'].."unlock" then
                 if Toggles['Airlock'] == true then
                     Airlock(false)
@@ -572,7 +574,7 @@ local function cmds(msg,plr)
                 local Dance = Instance.new("Animation")
                 Dance.Parent = player.Character
                 Dance.Name = "NeverGonnaGiveYouUp"
-                Dance.AnimationId = "http://www.roblox.com/asset/?id=15392927897"
+                Dance.AnimationId = "http://www.roblox.com/asset/?id=15392759696"
                 player.Character.Humanoid:LoadAnimation(Dance):Play()
             elseif string.lower(msg) == Settings['Prefix'].."unvibe" then
                 for i,v in pairs(player.Character.Humanoid:GetPlayingAnimationTracks()) do
@@ -816,7 +818,7 @@ local function cmds(msg,plr)
                         final_msg = final_msg..""..v
                     else
                         final_msg = final_msg.." "..v
-                    end
+                    end 
                 end
                 saymsg(final_msg)
             elseif msg[1] == Settings['Prefix'].."fps" then
