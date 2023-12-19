@@ -6,6 +6,8 @@ getgenv().Settings = {
     AdMessage = 'vouch eyedress 0995'
 }
 
+setfpscap(Settings.FPS)
+
 getgenv().Alts = {
     3954711285,
     3954737528,
@@ -84,12 +86,6 @@ game.Players.LocalPlayer.Idled:Connect(function()
     wait(1)
     game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),game.Workspace.CurrentCamera.CFrame)
 end)
-
-if player.UserId == Settings['Host'] then
-    operator = true
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptdumpkll/others/main/allin1.lua"))()
-    return
-end
 
 Holder = Instance.new("ScreenGui")
 Frame = Instance.new("Frame")
@@ -209,40 +205,6 @@ local function FormatAlts()
     return new
 end
 
-local handSize
-local originFall
-coroutine.resume(coroutine.create(function()
-    repeat wait() until workspace.Players:FindFirstChild(player.Name)
-    handSize = player.Character:FindFirstChild("RightHand").Size
-    originFall = player.Character.Animate.fall.FallAnim.AnimationId
-end))
-
-local function reach(boolean)
-    if boolean == true then
-        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            if string.find(v.Name,"Hand") then
-                pcall(function()
-                    v.Massless = true
-                    v.Size = Vector3.new(20,20,20)
-                    v.Transparency = .99
-                    v.CanCollide = true
-                end)
-            end
-        end
-    elseif boolean == false then
-        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            if string.find(v.Name,"Hand") then
-                pcall(function()
-                    v.Massless = false
-                    v.Size = handSize
-                    v.Transparency = 0
-                    v.CanCollide = false
-                end)
-            end
-        end
-    end
-end
-
 function CheckPlayer(userid)
     for i,v in pairs(game:service"Players":GetChildren()) do
         if v.UserId == userid then
@@ -272,12 +234,10 @@ local function KnockPlr(plr_name)
         local oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         repeat
             pcall(function()
-                reach(true)
                 setfpscap(20)
                 local combat = game.Players.LocalPlayer.Character:FindFirstChild("Combat") or game.Players.LocalPlayer.Backpack:FindFirstChild("Combat")
                 if combat then
                     if KNOCKING == false then
-                        reach(false)
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
                         return false
                     end
@@ -290,7 +250,6 @@ local function KnockPlr(plr_name)
             end)
             wait(0.01)
         until Target.Character.BodyEffects:FindFirstChild("K.O").Value == true
-        reach(false)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
         return Target.Name
     end
@@ -890,7 +849,7 @@ wait(.5)
 Freeze(true)
 local spawn
 local plr = game.Players.LocalPlayer
-saymsg("eyedress 0995")
+saymsg("booted")
 
 spawn = plr.Character.HumanoidRootPart.CFrame 
 
