@@ -3,22 +3,26 @@ getgenv().Settings = {
     Prefix = '/',
     FPS = 2,
     BlackScreen = true,
-    AdMessage = 'vouch eyedress 0995',
-    Webhook = 'https://discord.com/api/webhooks/1001879304881324044/srAiAQZEoSfF7PcjE_HNYSpC2jPPhuQy2I-1Oh-5-V4XIH2GTdrshHHITmjJWiVFkxQc',
+    AdMessage = 'vouch eyedress 0995'
 }
 
 getgenv().Alts = {
     3954711285,
     3954737528,
     3954747132,
-    3954785782,
     3954757934,
+    3954785782,
     3956594839,
     3956699233,
     3956816184,
     3956898964,
     3956913967,
     3956993280,
+    3143508730,
+    3143515926,
+    3260204676,
+    3260216479,
+    3260222297,
     3249377443,
     3249053117,
     3260565823,
@@ -26,13 +30,13 @@ getgenv().Alts = {
     3253250872,
     227473884,
     244300580,
-    3260216479,
-    3260222297,
     243180620,
     244324397,
     244297630,
     268288582,
-    215801603
+    215801603,
+    1327440729,
+    3259279822
 }
 
 if not game:IsLoaded() then
@@ -83,166 +87,54 @@ end)
 
 if player.UserId == Settings['Host'] then
     operator = true
-    local decalsyeeted = true
-    local g = game
-    local w = g.Workspace
-    local l = g.Lighting
-    local t = w.Terrain
-    t.WaterWaveSize = 0
-    t.WaterWaveSpeed = 0
-    t.WaterReflectance = 0
-    t.WaterTransparency = 0
-    l.GlobalShadows = false
-    l.FogEnd = 9e9
-    l.Brightness = 0
-    settings().Rendering.QualityLevel = "Level01"
-    for i, v in pairs(g:GetDescendants()) do
-        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-            v.Material = "Plastic"
-            v.Reflectance = 0
-        elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
-            v.Transparency = 1
-        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-            v.Lifetime = NumberRange.new(0)
-        elseif v:IsA("Explosion") then
-            v.BlastPressure = 1
-            v.BlastRadius = 1
-        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-            v.Enabled = false
-        elseif v:IsA("MeshPart") then
-            v.Material = "Plastic"
-            v.Reflectance = 0
-            v.TextureID = 10385902758728957
-        end
-    end
-    for i, e in pairs(l:GetChildren()) do
-        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-            e.Enabled = false
-        end
-    end
-
-    hookfunction(game.Players.LocalPlayer.IsInGroup, function() return true end)
-    hookfunction(game.Players.LocalPlayer.GetRankInGroup, function() return true end)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Crostide/Counter/main/Cash"))()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Crostide/cdhc/main/gui"))()
-    game.CoreGui.Crostide_Recode.Frame.Frame.TextLabel.Text = "    JMAN's Selling GUI"
-    game.CoreGui.Crostide_Recode.Frame.CreditsFrame.TextLabel.Text = "eyedress#0995"
-
-    local plr = game.Players.LocalPlayer
-    local Mouse = plr:GetMouse()
-        
-    Mouse.KeyDown:Connect(function(a)
-        if a == "l" then
-            if game.CoreGui:FindFirstChild("Redware") then
-                game.CoreGui.Redware:Destroy()
-            end
-
-            Holder = Instance.new("ScreenGui")
-            Frame = Instance.new("Frame")
-            TextLabel = Instance.new("TextLabel")
-            TextLabel_2 = Instance.new("TextLabel")
-    		TextLabel_3 = Instance.new("TextLabel")
-    		
-            Holder.Name = "Redware"
-            Holder.Parent = game.CoreGui
-            Holder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-            Holder.IgnoreGuiInset = true
-    
-            Frame.Parent = Holder
-            Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-            Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-            Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Frame.Size = UDim2.new(1, 0, 1, 0)
-    
-            TextLabel.Parent = Frame
-            TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            TextLabel.BackgroundTransparency = 1.000
-            TextLabel.Position = UDim2.new(0.5, 0, 0.49158523, 0)
-            TextLabel.Size = UDim2.new(0, 300, 0, 60)
-            TextLabel.Text = "eyedress#0995"
-            TextLabel.TextColor3 = Color3.fromRGB(144,238,144)
-            TextLabel.TextScaled = true
-            TextLabel.TextSize = 14.000
-            TextLabel.TextWrapped = true
-    
-            TextLabel_2.Parent = Frame
-            TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
-            TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            TextLabel_2.BackgroundTransparency = 1.000
-            TextLabel_2.Position = UDim2.new(0.499739617, 0, 0.549961051, 0)
-            TextLabel_2.Size = UDim2.new(0, 180, 0, 40)
-            TextLabel_2.Text = game.Players.LocalPlayer.Name
-            TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-            TextLabel_2.TextScaled = true
-            TextLabel_2.TextSize = 14.000
-            TextLabel_2.TextWrapped = true
-            
-			TextLabel_3.Parent = Frame
-            TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
-            TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            TextLabel_3.BackgroundTransparency = 1.000
-            TextLabel_3.Position = UDim2.new(0.499739617, 0, 0.599961051, 0)
-            TextLabel_3.Size = UDim2.new(0, 180, 0, 40)
-            TextLabel_3.Text = "MAIN"
-            TextLabel_3.TextColor3 = Color3.fromRGB(255, 0, 0)
-            TextLabel_3.TextScaled = true
-            TextLabel_3.TextSize = 14.000
-            TextLabel_3.TextWrapped = true
-            setfpscap(2)
-        elseif a == "k" then
-            setfpscap(60)
-            if game.CoreGui:FindFirstChild("Redware") then
-                game.CoreGui.Redware:Destroy()
-            end
-        end
-    end)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptdumpkll/others/main/allin1.lua"))()
     return
 end
 
-if Settings['BlackScreen'] == true then
-    pcall(function() setfpscap(Settings['FPS']) end)
-    Holder = Instance.new("ScreenGui")
-    Frame = Instance.new("Frame")
-    TextLabel = Instance.new("TextLabel")
-    TextLabel_2 = Instance.new("TextLabel")
+Holder = Instance.new("ScreenGui")
+Frame = Instance.new("Frame")
+TextLabel = Instance.new("TextLabel")
+TextLabel_2 = Instance.new("TextLabel")
 
-    Holder.Name = "Redware"
-    Holder.Parent = game.CoreGui
-    Holder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    Holder.IgnoreGuiInset = true
+Holder.Name = "Redware"
+Holder.Parent = game.CoreGui
+Holder.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Holder.IgnoreGuiInset = true
 
-    Frame.Parent = Holder
-    Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-    Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
-    Frame.Size = UDim2.new(1, 0, 1, 0)
+Frame.Parent = Holder
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Size = UDim2.new(1, 0, 1, 0)
 
-    TextLabel.Parent = Frame
-    TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TextLabel.BackgroundTransparency = 1.000
-    TextLabel.Position = UDim2.new(0.5, 0, 0.49158523, 0)
-    TextLabel.Size = UDim2.new(0, 300, 0, 60)
-    TextLabel.Text = "eyedress#0995"
-    TextLabel.TextColor3 = Color3.fromRGB(144,238,144)
-    TextLabel.TextScaled = true
-    TextLabel.TextSize = 14.000
-    TextLabel.TextWrapped = true
+TextLabel.Parent = Frame
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.5, 0, 0.49158523, 0)
+TextLabel.Size = UDim2.new(0, 300, 0, 60)
+TextLabel.Font= Enum.Font.GothamBlack
+TextLabel.Text = "eyedress#0995"
+TextLabel.TextColor3 = Color3.fromRGB(144,238,144)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
 
-    TextLabel_2.Parent = Frame
-    TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
-    TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TextLabel_2.BackgroundTransparency = 1.000
-    TextLabel_2.Position = UDim2.new(0.499739617, 0, 0.539961051, 0)
-    TextLabel_2.Size = UDim2.new(0, 140, 0, 40)
-    TextLabel_2.Text = game.Players.LocalPlayer.Name
-    TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TextLabel_2.TextScaled = true
-    TextLabel_2.TextSize = 14.000
-    TextLabel_2.TextWrapped = true
-    pcall(function() setfpscap(Settings['FPS']) end)
-end
+TextLabel_2.Parent = Frame
+TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.499739617, 0, 0.539961051, 0)
+TextLabel_2.Size = UDim2.new(0, 140, 0, 40)
+TextLabel_2.Font = Enum.Font.Nunito
+TextLabel_2.Text = game.Players.LocalPlayer.Name
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+pcall(function() setfpscap(Settings['FPS']) end)
+UserSettings():GetService("UserGameSettings").MasterVolume = 0
+LOWGFX()
 
 local a=game:GetService("ReplicatedStorage").MainEvent;local b={"CHECKER_1","TeleportDetect","OneMoreTime"}local c;c=hookmetamethod(game,"__namecall",function(...)local d={...}local self=d[1]local e=getnamecallmethod()local f=getcallingscript()if e=="FireServer"and self==a and table.find(b,d[2])then return end return c(...)end)
 
@@ -257,7 +149,6 @@ local Toggles = {
     KNOCKING = false,
     DestroyCash = false,
     Advertising = false,
-    Cashauraing = false,
     Noclipping = false,
     Airlock = false,
     Ground = false,
@@ -274,13 +165,6 @@ game:GetService("RunService").Stepped:Connect(function()
         for e, v in pairs(workspace:FindFirstChild('Ignored'):FindFirstChild('Drop'):GetChildren()) do
             if v.Name == 'MoneyDrop' then
                 v:Destroy()
-            end
-        end
-    end
-    if Toggles['Cashauraing'] == true then
-        for i,v in pairs(workspace.Ignored.Drop:GetChildren()) do
-            if v:IsA("Part") and (v.Position-player.Character.HumanoidRootPart.Position).Magnitude <= 15 then
-                fireclickdetector(v:FindFirstChild("ClickDetector"))
             end
         end
     end
@@ -325,6 +209,59 @@ local function FormatAlts()
     return new
 end
 
+local handSize
+local originFall
+coroutine.resume(coroutine.create(function()
+    repeat wait() until workspace.Players:FindFirstChild(player.Name)
+    handSize = player.Character:FindFirstChild("RightHand").Size
+    originFall = player.Character.Animate.fall.FallAnim.AnimationId
+end))
+
+local function reach(boolean)
+    if boolean == true then
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if string.find(v.Name,"Hand") then
+                pcall(function()
+                    v.Massless = true
+                    v.Size = Vector3.new(20,20,20)
+                    v.Transparency = .99
+                    v.CanCollide = true
+                end)
+            end
+        end
+    elseif boolean == false then
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if string.find(v.Name,"Hand") then
+                pcall(function()
+                    v.Massless = false
+                    v.Size = handSize
+                    v.Transparency = 0
+                    v.CanCollide = false
+                end)
+            end
+        end
+    end
+end
+
+function CheckPlayer(userid)
+    for i,v in pairs(game:service"Players":GetChildren()) do
+        if v.UserId == userid then
+            return true
+        end
+    end
+    return false
+end
+
+function ReSort(table_)
+    local k = {}
+    for i,v in pairs(table_) do
+        if CheckPlayer(v) == true then
+            table.insert(k,v)
+        end
+    end
+    return k
+end
+
 local function KnockPlr(plr_name)
     local data = CheckPlr2(plr_name)
     if data == nil then
@@ -335,22 +272,25 @@ local function KnockPlr(plr_name)
         local oldpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         repeat
             pcall(function()
+                reach(true)
                 setfpscap(20)
                 local combat = game.Players.LocalPlayer.Character:FindFirstChild("Combat") or game.Players.LocalPlayer.Backpack:FindFirstChild("Combat")
                 if combat then
                     if KNOCKING == false then
+                        reach(false)
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
                         return false
                     end
                     if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") then
                         game.Players.LocalPlayer.Backpack:FindFirstChild("Combat").Parent = game.Players.LocalPlayer.Character
                     end
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(0,-2,0)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame + Vector3.new(0,-2,-2)
                     game.Players.LocalPlayer.Character:FindFirstChild("Combat"):Activate()
                 end
             end)
             wait(0.01)
         until Target.Character.BodyEffects:FindFirstChild("K.O").Value == true
+        reach(false)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldpos
         return Target.Name
     end
@@ -373,6 +313,10 @@ local TPAREAS = {
     Train = "608.0512084960938, 47.9999885559082, -104.57772064208984"
 }
 
+local PresentSetups = {
+    SurroundSetup = {"4.5,0,0","0,0,4.5","-4.5,0,0","0,0,-4.5","3,0,3","-3,0,3","-3,0,-3","3,0,-3","6.5,0,0","5,0,3","3.5,0,5","0,0,6.5","-5,0,3","-3.5,0,5","-6.5,0,0","-5,0,-3","-3.5,0,-5","0,0,-6.5","5,0,-3","3.5,0,-5","4.5,7,0","0,7,4.5","-4.5,7,0","0,7,-4.5","3,7,3","-3,7,3","-3,7,-3","3,7,-3","6.5,7,0","5,7,3","3.5,7,5","0,7,6.5","-5,7,3","-3.5,7,5","-6.5,7,0","-5,7,-3","-3.5,7,-5","0,7,-6.5","5,7,-3","3.5,7,-5"},
+}
+
 local function SetupArea(area)
     local cords = locations_setup[area]
     local newalts = FormatAlts()
@@ -387,10 +331,6 @@ local function SetupArea(area)
         end
     end
 end
-
-local PresentSetups = {
-    SurroundSetup = {"4.5,0,0","0,0,4.5","-4.5,0,0","0,0,-4.5","3,0,3","-3,0,3","-3,0,-3","3,0,-3","6.5,0,0","5,0,3","3.5,0,5","0,0,6.5","-5,0,3","-3.5,0,5","-6.5,0,0","-5,0,-3","-3.5,0,-5","0,0,-6.5","5,0,-3","3.5,0,-5","4.5,7,0","0,7,4.5","-4.5,7,0","0,7,-4.5","3,7,3","-3,7,3","-3,7,-3","3,7,-3","6.5,7,0","5,7,3","3.5,7,5","0,7,6.5","-5,7,3","-3.5,7,5","-6.5,7,0","-5,7,-3","-3.5,7,-5","0,7,-6.5","5,7,-3","3.5,7,-5"},
-}
 
 local function Surronund(PLRNAME)
     local data = CheckPlr2(PLRNAME)
@@ -413,6 +353,7 @@ local function Surronund(PLRNAME)
     end
 end
 
+
 local function CreateGroundPart()
     local Name = "GROUND"
     local Part = Instance.new("Part",workspace)
@@ -433,8 +374,15 @@ game:GetService("RunService").Stepped:Connect(function()
 end)
 
 function Reset()
-    for i,v in pairs(player.Character:GetChildren()) do
-        if string.find(v.Name,"Humanoid") or v:IsA("MeshPart") then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(1000,-300,5000)
+    task.wait()
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v:IsA("Tool") then
+            v.Parent = game.Players.LocalPlayer.Character
+        end
+    end
+    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("MeshPart") or v:IsA("BasePart") or v:IsA("Accessory") then
             v:Destroy()
         end
     end
@@ -448,7 +396,6 @@ function Drop(boolean)
         Toggles['Dropping'] = false
         Toggles['Blocking'] = false
         Toggles['KNOCKING'] = false
-        Toggles['Cashauraing'] = false
         Toggles['CustomDropping'] = false
         wait(0.5)
         for i=1,10 do
@@ -480,10 +427,7 @@ function Airlock(boolean)
         end
         Freeze(false)
         Toggles['Airlock'] = true
-        local cf = 7
-        if Toggles['Ground'] == true then
-            cf = 14
-        end
+        local cf = 5
         local plr = game:service"Players".LocalPlayer
         local Part = Instance.new("Part",workspace)
         player.Character.Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=3541114300"
@@ -495,7 +439,6 @@ function Airlock(boolean)
         player.Character.HumanoidRootPart.CFrame = Part.CFrame+Vector3.new(0,2.5,0)
         wait(0.25)
         Freeze(true)
-        wait(.5)
         Part:Destroy()
     elseif boolean == false then
         if workspace:FindFirstChild("AirlockPart") then
@@ -520,13 +463,10 @@ function Ground(boolean)
         Freeze(false)
         Toggles['Noclipping'] = true
         local cf = 5
-        if Toggles['Airlock'] == true then
-            cf = 15
-        end
         local part = CreateGroundPart()
-        workspace:FindFirstChild(part).CFrame = player.Character.HumanoidRootPart.CFrame-Vector3.new(0,14,0)
+        workspace:FindFirstChild(part).CFrame = player.Character.HumanoidRootPart.CFrame-Vector3.new(0,11,0)
         workspace:FindFirstChild(part).Anchored = true
-        player.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame-Vector3.new(0,cf,0)
+        player.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame-Vector3.new(0,5,0)
         wait(1)
         Freeze(true)
         if workspace:FindFirstChild("GROUND") then
@@ -545,6 +485,75 @@ function Ground(boolean)
     end
 end
 
+local function GetPredropped()
+    local amt = 0
+    for i,v in pairs(workspace.Ignored.Drop:GetChildren()) do
+        if v:IsA("Part") and v.Parent.Name == "Drop" then
+            repeat wait(0.001) until v.Parent ~= nil
+            local g = v.BillboardGui.TextLabel.Text:gsub("%,",""):gsub("%$","")
+            amt = amt + tonumber(g)
+            print(amt)
+        end
+    end
+    return amt
+end
+
+local function StringSplitter(arg)
+    local t = {}
+    for i=1,string.len(arg) do
+        table.insert(t,string.sub(arg,i,i))
+    end
+    return t
+end
+
+local function SignGetter(arg)
+    arg = string.reverse(arg)
+    local data = StringSplitter(arg)
+    return data[1]
+end
+
+local function calculator(arg,sign)
+    arg = string.lower(arg)
+    local table_data = StringSplitter(arg)
+    local index = 0
+    for i,v in pairs(StringSplitter(arg)) do
+        index = index + 1
+    end
+    table.remove(table_data,index)
+    arg = ""
+    for i,v in pairs(table_data) do
+        arg = arg..""..v
+    end
+    if string.lower(sign) == "k" then
+        return tonumber(arg)*1000
+    elseif string.lower(sign) == "m" then
+        return tonumber(arg)*1000000
+    elseif string.lower(sign) == "b" then
+        return tonumber(arg)*1000000000
+    else
+        return tonumber(arg)
+    end
+end
+
+local function CustomDropCash(prearg,amt)
+    if Toggles['CustomDropping'] == true then
+        saymsg("Dropping -> "..prearg)
+        repeat
+            if Toggles['DelCash'] == true then
+                Toggles['DelCash'] = false
+            end
+            if Toggles['CustomDropping'] == false then return end
+            Toggles['Blocking'] = true
+            game.ReplicatedStorage.MainEvent:FireServer("DropMoney",10000)
+            wait()
+         until Toggles['CustomDropping'] == false or GetPredropped() >= amt
+        if GetPredropped() >= amt then
+            saymsg("Finished dropping -> "..prearg)
+            Toggles['DelCash'] = true
+        end
+    end
+end
+
 function Freeze(boolean)
     if boolean == true then
         player.Character.HumanoidRootPart.Anchored = true
@@ -554,7 +563,6 @@ function Freeze(boolean)
 end
 
 function Stop()
-    Toggles[''] = false
     Toggles['Noclipping'] = false
     Toggles['Airlock'] = false
     Toggles['Drop'] = false
@@ -562,7 +570,6 @@ function Stop()
     Toggles['Dropping'] = false
     Toggles['Blocking'] = false
     Toggles['KNOCKING'] = false
-    Toggles['Cashauraing'] = false
 end
 
 local function cmds(msg,plr)
@@ -601,47 +608,147 @@ local function cmds(msg,plr)
                 elseif Toggles['Ground'] == true then
                     Ground(false)
                 end
+            elseif string.lower(msg) == Settings['Prefix'].."vibe" then
+                local Dance = Instance.new("Animation")
+                Dance.Parent = player.Character
+                Dance.Name = "NeverGonnaGiveYouUp"
+                Dance.AnimationId = "http://www.roblox.com/asset/?id=15392927897"
+                player.Character.Humanoid:LoadAnimation(Dance):Play()
+            elseif string.lower(msg) == Settings['Prefix'].."unvibe" then
+                for i,v in pairs(player.Character.Humanoid:GetPlayingAnimationTracks()) do
+                    if v.Name == "NeverGonnaGiveYouUp" then
+                        v:Stop()
+                    end
+                end
             end
             msg = string.split(msg," ")
             msg[1] = string.lower(msg[1])
             if msg[1] == Settings['Prefix'].."setup" then
                 Stop()
+                Freeze(true)
+                local Lib = {
+                    bank = {
+                        MultiplierX = -11,
+                        MultiplierZ = 10,
+                        StartX = -364,
+                        CurrentX = -364,
+                        StartY = 21,
+                        StartZ = -335,
+                        CurrentZ = -335,
+                        MaxIterations = 13,
+                        MaxPerRow = 3,
+                        CurrentPerRow = 3
+                    },
+                    admin = {
+                        MultiplierX = -23,
+                        MultiplierZ = 32,
+                        StartX = -826,
+                        CurrentX = -826,
+                        StartY = -40,
+                        StartZ = -622,
+                        CurrentZ = -622,
+                        MaxIterations = 3,
+                        MaxPerRow = 5,
+                        CurrentPerRow = 5
+                    },
+                    train = {
+                        MultiplierX = -23,
+                        MultiplierZ = -28,
+                        StartX = 674,
+                        CurrentX = 674,
+                        StartY = 47,
+                        StartZ = -46,
+                        CurrentZ = -46,
+                        MaxIterations = 7,
+                        MaxPerRow = 5,
+                        CurrentPerRow = 5
+                    },
+                    jail = {
+                        MultiplierX = 14,
+                        MultiplierZ = 4,
+                        StartX = -341,
+                        CurrentX = -341,
+                        StartY = 22,
+                        StartZ = -46,
+                        CurrentZ = -46,
+                        MaxIterations = 7,
+                        MaxPerRow = 6,
+                        CurrentPerRow = 6
+                    },
+                    school = {
+                        MultiplierX = -25,
+                        MultiplierZ = -11,
+                        StartX = -489,
+                        CurrentX = -489,
+                        StartY = 21,
+                        StartZ = 233,
+                        CurrentZ = 233,
+                        MaxIterations = 5,
+                        MaxPerRow = 8,
+                        CurrentPerRow = 8
+                    },
+                    basketball = {
+                        MultiplierX = -17.8,
+                        MultiplierZ = 18.6,
+                        StartX = -870,
+                        CurrentX = -870,
+                        StartY = 21,
+                        StartZ = -520,
+                        CurrentZ = -520,
+                        MaxIterations = 5,
+                        MaxPerRow = 8,
+                        CurrentPerRow = 8
+                    },
+                    club = {
+                        MultiplierX = 14,
+                        MultiplierZ = -21,
+                        StartX = -289,
+                        CurrentX = -289,
+                        StartY = -7,
+                        StartZ = -350,
+                        CurrentZ = -350,
+                        MaxIterations = 6,
+                        MaxPerRow = 5,
+                        CurrentPerRow = 5
+                    }
+                }
+                
+                local areas = {'train','club','admin','jail','school','basketball','bank'}
+                local plr = game:service"Players".LocalPlayer
+                
+                if table.find(areas,msg[2]) then
+                    local area = msg[2]:lower()
+                        for i=1,Lib[area]['MaxIterations']*Lib[area]['MaxPerRow'] do
+                            local x,y,z = Lib[area]['CurrentX'],Lib[area]['StartY'],Lib[area]['CurrentZ']
+                            if ReSort(getgenv().Alts)[i] == plr.UserId then
+                                plr.Character.HumanoidRootPart.CFrame = CFrame.new(x,y,z)
+                                break
+                            end
+                            Lib[area]['CurrentX'] = Lib[area]['CurrentX'] + Lib[area]['MultiplierX']
+                            if i == Lib[area]['CurrentPerRow'] then
+                                Lib[area]['CurrentPerRow'] = Lib[area]['CurrentPerRow'] + Lib[area]['MaxPerRow']
+                                Lib[area]['CurrentZ'] = Lib[area]['CurrentZ'] + Lib[area]['MultiplierZ']
+                                Lib[area]['CurrentX'] = Lib[area]['StartX']
+                            end
+                        end
+                    end
                 Freeze(false)
-                if string.lower(msg[2]) == "admin" then
-                    Freeze(false)
-                    SetupArea("Admin")
-                    wait(2)
-                    Freeze(true)
-                elseif string.lower(msg[2]) == "train" then
-                    Freeze(false)
-                    SetupArea("Train")
-                    wait(2)
-                    Freeze(true)
-                elseif string.lower(msg[2]) == "club" then
-                    Freeze(false)
-                    SetupArea("Club")
-                    wait(2)
-                    Freeze(true)
-                elseif string.lower(msg[2]) == "bank" then
-                    Freeze(false)
-                    SetupArea("Bank")
-                    wait(2)
-                    Freeze(true)
-                end
+                wait(0.5)
+                Freeze(true)
             elseif msg[1] == Settings['Prefix'].."delcash" then
                 if string.lower(msg[2]) == "on" then
                     Delcash(true)
                     saymsg("[on]")
                 elseif string.lower(msg[2]) == "off" then
-                    DelCash(false)
+                    Delcash(false)
                     saymsg("[off]")
                 end
             elseif msg[1] == Settings['Prefix'].."money" then
                 if string.lower(msg[2]) == "show" then
-                    Wallet(false)
+                    Wallet(true)
                     saymsg("[on]")
                 elseif string.lower(msg[2]) == "hide" then
-                    Wallet(true)
+                    Wallet(false)
                     saymsg("[off]")
                 end
             elseif msg[1] == Settings['Prefix'].."bring" then
@@ -656,6 +763,8 @@ local function cmds(msg,plr)
                         theplace = "Sw"
                     elseif string.lower(msg[3]) == "void" then
                         theplace = "Void"
+                    elseif string.lower(msg[3]) == "admin" then
+                        theplace = "Admin"
                     elseif string.lower(msg[3]) == "train" then
                         theplace = "Train"
                     elseif string.lower(msg[3]) == "club" then
@@ -685,7 +794,7 @@ local function cmds(msg,plr)
                                 elseif theplace == "Club" then
                                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Club'],",")[1],string.split(TPAREAS['Club'],",")[2],string.split(TPAREAS['Club'],",")[3])
                                 elseif theplace == "Bank" then
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Club'],",")[1],string.split(TPAREAS['Club'],",")[2],string.split(TPAREAS['Club'],",")[3])
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Bank'],",")[1],string.split(TPAREAS['Bank'],",")[2],string.split(TPAREAS['Bank'],",")[3])
                                 elseif theplace == "Sw" then
                                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(string.split(TPAREAS['Sw'],",")[1],string.split(TPAREAS['Sw'],",")[2],string.split(TPAREAS['Sw'],",")[3])
                                 elseif theplace == "Void" then
@@ -715,12 +824,41 @@ local function cmds(msg,plr)
                         end
                     end
                 end
+            elseif msg[1] == Settings['Prefix'].."cdrop" then
+                local data = calculator(msg[2],SignGetter(msg[2]))
+                if data then
+                    Toggles['CustomDropping'] = false
+                    Toggles['CustomDropping'] = true
+                    CustomDropCash(msg[2],tonumber(data))
+                    for i=1,10 do
+                        wait()
+                        game.ReplicatedStorage.MainEvent:FireServer("Block",false)
+                    end
+                end
             elseif msg[1] == Settings['Prefix'].."to" then
                 Stop()
                 Freeze(false)
                 Surronund(msg[2])
                 wait(2)
                 Freeze(true)
+            elseif msg[1] == Settings['Prefix'].."say" then
+                local final_msg = ""
+                local new_msg = {}
+                for i,v in pairs(msg) do
+                    table.insert(new_msg,v)
+                end
+                                
+                table.remove(new_msg,1)
+                local index = 0
+                for i,v in pairs(new_msg) do
+                    index = index + 1
+                    if index == 1 then
+                        final_msg = final_msg..""..v
+                    else
+                        final_msg = final_msg.." "..v
+                    end
+                end
+                saymsg(final_msg)
             elseif msg[1] == Settings['Prefix'].."fps" then
                 if tonumber(msg[2]) then
                     setfpscap(tonumber(msg[2]))
@@ -731,19 +869,28 @@ local function cmds(msg,plr)
     end
 end
 
-game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(messageData) 
-    local user = game:service"Players":GetPlayerByUserId(game.Players:GetUserIdFromNameAsync(messageData.FromSpeaker))
-    local msg = messageData.Message
-    if user.UserId == Settings['Host'] then
-        cmds(msg, user.UserId)
-    end
+game.Players.PlayerAdded:Connect(function(plr)
+	if plr.UserId == Settings['Host'] then
+		plr.Chatted:Connect(function(msg)
+			cmds(msg,plr.UserId)
+		end)
+	end
 end)
+
+for item,plr in pairs(game.Players:GetChildren()) do
+	if plr.UserId == Settings['Host'] then
+		plr.Chatted:Connect(function(msg)
+			cmds(msg,plr.UserId)
+		end)
+	end
+end
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-124.87274169921875, -58.7000732421875, 170.70431518554688)
 wait(.5)
 Freeze(true)
 local spawn
 local plr = game.Players.LocalPlayer
+saymsg("eyedress 0995")
 
 spawn = plr.Character.HumanoidRootPart.CFrame 
 
